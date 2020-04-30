@@ -25,17 +25,12 @@ public class PlayerControler : MonoBehaviour {
 		                                                	gameObject.GetComponent<Animator>().SetBool("moving",false);
 															}
 
-
-
-
 		if(Input.GetKey("left") && Input.GetKeyDown("up")){
 															runnerjump();
                             					    		}
 		if(Input.GetKey("right") && Input.GetKeyDown("up")){
 															runnerjump();
 		                                                   }													
-
-
 
 	}
 	private void left(){
@@ -48,15 +43,12 @@ public class PlayerControler : MonoBehaviour {
 		gameObject.GetComponent<Rigidbody2D>().AddForce(new Vector2(fuerza * Time.deltaTime,0));
 		gameObject.GetComponent<SpriteRenderer>().flipX = false;
 		gameObject.GetComponent<Animator>().SetBool("moving",true);
-
 	}
 
 	private void runnerjump(){
                             gameObject.GetComponent<Animator>().SetBool("movjump",true);
 						    up(50f);
 	}
-	
-
 	private void up(float fuerza){
 
 	                  if(canJump == true){
