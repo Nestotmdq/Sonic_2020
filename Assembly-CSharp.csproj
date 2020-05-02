@@ -55,6 +55,7 @@
      <Compile Include="Assets\Scripts\Sounds\livetime.cs" />
      <Compile Include="Assets\Scripts\varios\CaidaVacio.cs" />
      <Compile Include="Assets\Scripts\varios\CameraFollow.cs" />
+     <Compile Include="Assets\Scripts\varios\DataBank.cs" />
  <Reference Include="UnityEngine.UI">
  <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
  </Reference>

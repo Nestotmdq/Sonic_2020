@@ -8,6 +8,16 @@ public class PlayerControler : MonoBehaviour {
 	public float fuerza;
 	public float fuerzaSalto;
 	bool canJump;
+
+
+	void Start(){
+
+	//	gameObject.GetComponent<Animator>().SetBool("caida",false);
+
+
+
+	}
+
 	
 	private void FixedUpdate () {
 		
@@ -18,7 +28,7 @@ public class PlayerControler : MonoBehaviour {
 							   	 right();
 		                         }
 		if(Input.GetKeyDown("up") && canJump){
-                                              up(350f);
+                                              up(fuerzaSalto);
 		                                     }
 		if(!Input.GetKey("left") && !Input.GetKey("right")){
 
@@ -34,20 +44,31 @@ public class PlayerControler : MonoBehaviour {
 
 	}
 	private void left(){
+
 		gameObject.GetComponent<Rigidbody2D>().AddForce(new Vector2(fuerza * -1 * Time.deltaTime,0));
 		gameObject.GetComponent<SpriteRenderer>().flipX = true;
 		gameObject.GetComponent<Animator>().SetBool("moving",true);
 	}
 	private void right(){
 
+
+		
 		gameObject.GetComponent<Rigidbody2D>().AddForce(new Vector2(fuerza * Time.deltaTime,0));
 		gameObject.GetComponent<SpriteRenderer>().flipX = false;
 		gameObject.GetComponent<Animator>().SetBool("moving",true);
+			
+
+
 	}
 
 	private void runnerjump(){
+
+                      
                             gameObject.GetComponent<Animator>().SetBool("movjump",true);
 						    up(50f);
+					      
+
+
 	}
 	private void up(float fuerza){
 
@@ -68,10 +89,13 @@ public class PlayerControler : MonoBehaviour {
 		 								canJump = true;
 										gameObject.GetComponent<Animator>().SetBool("jump",false);
 										gameObject.GetComponent<Animator>().SetBool("movjump",false);
+										gameObject.GetComponent<Animator>().SetBool("caida",false);
 
 	 }
 
 	}
+
+	
 
 
 
