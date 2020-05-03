@@ -12,10 +12,6 @@ public class PlayerControler : MonoBehaviour {
 
 	void Start(){
 
-	//	gameObject.GetComponent<Animator>().SetBool("caida",false);
-
-
-
 	}
 
 	

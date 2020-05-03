@@ -4,20 +4,17 @@ using UnityEngine;
 
 public class DataBank : MonoBehaviour {
 
+	
 	public static DataBank dataBank;
-	private int vidas;
-	private int puntos;
-	private int sortijas;
-	private float posicionX;
-
+    int vidas;
+	int puntos;
 
 	void Start () {
-		
+	Debug.Log("El juego se inicio");	
 	dataBank = this;	
 	vidas = 3;
 	puntos = 0;
-	sortijas = 0;
-	posicionX = 0.0f;
+	
 	}
 	
 	public int GetVidas(){
@@ -25,6 +22,9 @@ public class DataBank : MonoBehaviour {
 	}
 	public void SetVidas(int vida){
 	vidas += vida;
+	
 	}
+    
+	 
 	}
 
