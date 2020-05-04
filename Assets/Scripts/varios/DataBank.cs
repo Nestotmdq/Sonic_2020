@@ -7,14 +7,14 @@ public class DataBank : MonoBehaviour {
 	
 	public static DataBank dataBank;
     int vidas;
-	int puntos;
+	//int puntos;
 	
 
 	void Start () {
-	Debug.Log("El juego se inicio");	
+//	Debug.Log("El juego se inicio");	
 	dataBank = this;	
 	vidas = 10;
-	puntos = 0;
+	//puntos = 0;
 	
 	}
 	
