@@ -8,11 +8,12 @@ public class DataBank : MonoBehaviour {
 	public static DataBank dataBank;
     int vidas;
 	int puntos;
+	
 
 	void Start () {
 	Debug.Log("El juego se inicio");	
 	dataBank = this;	
-	vidas = 3;
+	vidas = 10;
 	puntos = 0;
 	
 	}
@@ -21,7 +22,8 @@ public class DataBank : MonoBehaviour {
 		return vidas;
 	}
 	public void SetVidas(int vida){
-	vidas += vida;
+	vidas += vida ;
+	Debug.Log("Se resto una vida");
 	
 	}
     

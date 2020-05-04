@@ -7,6 +7,9 @@ TagManager:
   - ground
   - vacio
   - fondo
+  - emuje
+  - empuje
+  - empuje2
   layers:
   - Default
   - TransparentFX
