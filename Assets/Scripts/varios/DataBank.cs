@@ -7,7 +7,9 @@ public class DataBank : MonoBehaviour {
 	
 	public static DataBank dataBank;
     int vidas;
+	bool canJ;
 	//int puntos;
+	
 	
 
 	void Start () {
@@ -23,8 +25,17 @@ public class DataBank : MonoBehaviour {
 	}
 	public void SetVidas(int vida){
 	vidas += vida ;
-	Debug.Log("Se resto una vida");
+	//Debug.Log("Se resto una vida");
 	
+	}
+	public void SetcanJ(bool valor){
+         
+		 canJ = valor;
+
+	}
+	public bool GetcanJ(){
+
+		return canJ;
 	}
     
 	 

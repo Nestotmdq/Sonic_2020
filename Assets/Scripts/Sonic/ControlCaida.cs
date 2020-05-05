@@ -13,40 +13,35 @@ public class ControlCaida : MonoBehaviour {
 	Animator an;
 	SpriteRenderer sr;
 	BoxCollider2D bc;
+	PlayerControler  cj;
 	
 	void Start(){
-	pc = gameObject.GetComponent<PlayerControler>();
-	rb = gameObject.GetComponent<Rigidbody2D>();
-    an = gameObject.GetComponent<Animator>();
-	sr = gameObject.GetComponent<SpriteRenderer>();
-	bc = gameObject.GetComponent<BoxCollider2D>();            
+	             pc = gameObject.GetComponent<PlayerControler>();
+	             rb = gameObject.GetComponent<Rigidbody2D>();
+                 an = gameObject.GetComponent<Animator>();
+	             sr = gameObject.GetComponent<SpriteRenderer>();
+	             bc = gameObject.GetComponent<BoxCollider2D>();  
+	             cj = PlayerControler.playerControler;
 				}
 
-	private void OnTriggerEnter2D(Collider2D other){
-		                                            if(other.gameObject.tag == "empuje"){
-                                                                                         pc.enabled = false;
-											                                             rb.AddForce(new Vector2(150f,0));
-	                                       	                                            }
-                                                    if(other.gameObject.tag == "empuje2"){
-									   		                                              pc.enabled = false;
-											                                              rb.AddForce(new Vector2(-150f,0));
-		                                                                                 }
-		                                            if(other.gameObject.tag == "vacio"){
-		                                                                                Instantiate(soundFall);
-		                                                                                pc.enabled = false;
-		                                                                                an.SetBool("wakeup",false);
-		                                                                                an.SetBool("caida",true);
-										                                               }
-                                        	       }
-												   
+    void OnTriggerEnter2D(Collider2D other){
+		                                   if(other.gameObject.tag == "vacio"){
+                                           if((cj.GetcanJump() == true)||(cj.GetcanJump() == false)){
+																					                 Instantiate(soundFall);
+		                                                                                             pc.enabled = false;
+																								     an.SetBool("inertia",true);
+		                                                                                             an.SetBool("wakeup",false);
+		                                                                                             an.SetBool("caida",true);
+										   }}}
     private void OnCollisionEnter2D(Collision2D other) {
 								                        if(other.gameObject.tag == "fondo"){
                                 		                                                    sr.enabled = false;
+																							an.SetBool("inertia",false);
 			                                                                                an.SetBool("caida",false);
 		                                                                                    an.SetBool("wakeup",true);
 			                                                                                rb.AddForce(new Vector2(-300f,0));
 			                                                                                bc.enabled = false;
-			                                                                                rb.AddForce(new Vector2(0,600f));
+			                                                                                rb.AddForce(new Vector2(0,650f));
 						                                                                    StartCoroutine ("Wait");
 			                                                                                StartCoroutine ("Wait2");
 								                                                            DataBank.dataBank.SetVidas(-1);
@@ -64,8 +59,6 @@ public class ControlCaida : MonoBehaviour {
                         pc.enabled = true;
 	                    sr.enabled = true;
                        }
-					   
-
 	}
 
 

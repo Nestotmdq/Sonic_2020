@@ -4,19 +4,23 @@ using UnityEngine;
 
 public class PlayerControler : MonoBehaviour {
 
+	
+    public static PlayerControler playerControler;
 	public GameObject jumpSound;
 	public float fuerza;
 	public float fuerzaSalto;
 	bool canJump;
-
-
+    Animator an;
+	Rigidbody2D rb;
+	SpriteRenderer sr;
 	void Start(){
-
-	}
-
-	
-	private void FixedUpdate () {
 		
+		playerControler = this;
+		an = gameObject.GetComponent<Animator>();
+		rb = gameObject.GetComponent<Rigidbody2D>();
+		sr = gameObject.GetComponent<SpriteRenderer>();
+	}
+	private void FixedUpdate () {
 		if(Input.GetKey("left")){
 				                 left();
                          		}
@@ -27,74 +31,46 @@ public class PlayerControler : MonoBehaviour {
                                               up(fuerzaSalto);
 		                                     }
 		if(!Input.GetKey("left") && !Input.GetKey("right")){
-
-		                                                	gameObject.GetComponent<Animator>().SetBool("moving",false);
-															}
-
+		                                                	an.SetBool("moving",false);
+														   }
 		if(Input.GetKey("left") && Input.GetKeyDown("up")){
 															runnerjump();
                             					    		}
 		if(Input.GetKey("right") && Input.GetKeyDown("up")){
 															runnerjump();
 		                                                   }													
-
 	}
 	private void left(){
-
-		gameObject.GetComponent<Rigidbody2D>().AddForce(new Vector2(fuerza * -1 * Time.deltaTime,0));
-		gameObject.GetComponent<SpriteRenderer>().flipX = true;
-		gameObject.GetComponent<Animator>().SetBool("moving",true);
-	}
+                		rb.AddForce(new Vector2(fuerza * -1 * Time.deltaTime,0));
+		                sr.flipX = true;
+		                an.SetBool("moving",true);
+                      	}
 	private void right(){
-
-
-		
-		gameObject.GetComponent<Rigidbody2D>().AddForce(new Vector2(fuerza * Time.deltaTime,0));
-		gameObject.GetComponent<SpriteRenderer>().flipX = false;
-		gameObject.GetComponent<Animator>().SetBool("moving",true);
-			
-
-
+		rb.AddForce(new Vector2(fuerza * Time.deltaTime,0));
+		sr.flipX = false;
+		an.SetBool("moving",true);
 	}
-
 	private void runnerjump(){
-
-                      
-                            gameObject.GetComponent<Animator>().SetBool("movjump",true);
-						    up(50f);
-					      
-
-
-	}
+                             an.SetBool("movjump",true);
+						     up(30f);
+	                         }
 	private void up(float fuerza){
-
-	                  if(canJump == true){
-                                          Instantiate(jumpSound);
-	                    				  }
-
-					  canJump = false;
-					  gameObject.GetComponent<Rigidbody2D>().AddForce(new Vector2(0,fuerza));
-					  gameObject.GetComponent<Animator>().SetBool("jump",true);
-					  
-	}
-	
-	void OnCollisionEnter2D(Collision2D coll)
-	{
-	 if(coll.transform.tag == "ground"){
-
-		 								canJump = true;
-										gameObject.GetComponent<Animator>().SetBool("jump",false);
-										gameObject.GetComponent<Animator>().SetBool("movjump",false);
-										gameObject.GetComponent<Animator>().SetBool("caida",false);
-
-	 }
-
-	}
-
-	
-
-
-
-
-
-}
+	                             if(canJump == true){
+                                                     Instantiate(jumpSound);
+	                    				            }
+					             canJump = false;
+					             rb.AddForce(new Vector2(0,fuerza));
+					             an.SetBool("jump",true);
+								 }
+	void OnCollisionEnter2D(Collision2D coll){
+	                                          if(coll.transform.tag == "ground"){
+		 								                                         canJump = true;
+										                                         an.SetBool("jump",false);
+										                                         an.SetBool("movjump",false);
+									                                             an.SetBool("caida",false);
+	                                                                            }
+	                                         }
+    public bool GetcanJump(){
+	                        return canJump;
+                            }
+                                             }
