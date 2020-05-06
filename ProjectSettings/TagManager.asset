@@ -10,6 +10,8 @@ TagManager:
   - emuje
   - empuje
   - empuje2
+  - player
+  - phanton
   layers:
   - Default
   - TransparentFX

@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: adb38cac2524d044a954ab6e83676211
+timeCreated: 1588734491
+licenseType: Free
+MonoImporter:
+  serializedVersion: 2
+  defaultReferences:
+  - soundImpact: {fileID: 1965821069858928, guid: 046817965d4787843904d5d09b98175f,
+      type: 2}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
