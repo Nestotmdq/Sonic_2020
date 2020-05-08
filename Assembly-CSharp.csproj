@@ -52,11 +52,13 @@
   </ItemGroup>
   <ItemGroup>
      <Compile Include="Assets\Scripts\Enemies\Collision.cs" />
+     <Compile Include="Assets\Scripts\Enemies\InitialPosition.cs" />
      <Compile Include="Assets\Scripts\Sonic\ControlCaida.cs" />
      <Compile Include="Assets\Scripts\Sonic\PlayerControler.cs" />
      <Compile Include="Assets\Scripts\Sounds\livetime.cs" />
      <Compile Include="Assets\Scripts\varios\CameraFollow.cs" />
      <Compile Include="Assets\Scripts\varios\DataBank.cs" />
+     <Compile Include="Assets\Scripts\varios\LiveShow.cs" />
  <Reference Include="UnityEngine.UI">
  <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
  </Reference>

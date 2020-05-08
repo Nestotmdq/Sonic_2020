@@ -15,13 +15,14 @@ public class DataBank : MonoBehaviour {
 	void Start () {
 //	Debug.Log("El juego se inicio");	
 	dataBank = this;	
-	vidas = 10;
+	vidas = 3;
 	//puntos = 0;
 	
 	}
 	
 	public int GetVidas(){
 		return vidas;
+		
 	}
 	public void SetVidas(int vida){
 	vidas += vida ;
@@ -35,6 +36,7 @@ public class DataBank : MonoBehaviour {
 	}
 	public bool GetcanJ(){
 
+		
 		return canJ;
 	}
     

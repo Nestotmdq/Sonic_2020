@@ -83,15 +83,6 @@ public class PlayerControler : MonoBehaviour {
 									                                             an.SetBool("caida",false);
 																				 canHit = false;
 	                                                                            }
-																				/* 
-											 if(coll.transform.tag == "phanton"){
-
-												 	Debug.Log("Choque con fantom");
-													 if(canJump == true){
-														 Destroy(gameObject);
-													 }
-
-                                                        */
 											 }
 											  	
 
@@ -100,22 +91,24 @@ public class PlayerControler : MonoBehaviour {
                 if(canJump == true){
                     Instantiate(soundHit);
                       keyActive = false;
-					  StartCoroutine("Wait");
-					  an.SetBool("inertia",true);
+                      an.SetBool("inertia",true);
 		              an.SetBool("wakeup",false);
 		              an.SetBool("caida",true);
-					//  rb.AddForce(new Vector2(0,1000f));
-					  bc.enabled = false;
-					  //bc.enabled = true;
-
+					  StartCoroutine("Wait");
+					  rb.AddForce(new Vector2(-200f,0));
+					  rb.AddForce(new Vector2(0,400f));
 				}
 				
 			}
 	}
     IEnumerator Wait(){
-                       yield return new WaitForSeconds(1);
-	                  bc.enabled = true;
-					  keyActive = true;	                  }
+					   Debug.Log("Entrando en wait");
+                       yield return new WaitForSeconds(2);
+                       sr.enabled = false;
+					//   rb.AddForce(new Vector2(0,700f));
+					   rb.AddForce(new Vector2(-150f,0));
+					  // sr.enabled = true;
+	                                  }
 
 
     public bool GetcanJump(){

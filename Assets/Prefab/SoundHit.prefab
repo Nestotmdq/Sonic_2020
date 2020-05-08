@@ -20,6 +20,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4965464211253668}
   - component: {fileID: 82358139598439962}
+  - component: {fileID: 114282732878620804}
   m_Layer: 0
   m_Name: SoundHit
   m_TagString: Untagged
@@ -120,3 +121,14 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 0
+--- !u!114 &114282732878620804
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1965821069858928}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0776512b74d22294db0f8b47deb52efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

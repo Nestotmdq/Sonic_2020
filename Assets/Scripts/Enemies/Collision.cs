@@ -14,10 +14,15 @@ public class Collision : MonoBehaviour {
 		if(other.gameObject.tag == "player"){
 			
             if(PlayerControler.playerControler.GetcanHit() == true){
-             Debug.Log("Sonic ataca");
+				Instantiate(soundImpact);
+			 	gameObject.GetComponent<BoxCollider2D>().enabled = false;
 				gameObject.GetComponent<Animator>().SetBool("fire",true);
 				Destroy(gameObject,1);
-				Instantiate(soundImpact);
+
+				//Instantiate(soundImpact);
+			}
+			if(PlayerControler.playerControler.GetcanHit() == false){
+				Destroy(gameObject);
 			}
 
 		}
