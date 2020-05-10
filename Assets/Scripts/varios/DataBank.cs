@@ -8,7 +8,7 @@ public class DataBank : MonoBehaviour {
 	public static DataBank dataBank;
     int vidas;
 	bool canJ;
-	//int puntos;
+	int rings;
 	
 	
 
@@ -16,7 +16,7 @@ public class DataBank : MonoBehaviour {
 //	Debug.Log("El juego se inicio");	
 	dataBank = this;	
 	vidas = 3;
-	//puntos = 0;
+	rings = 0;
 	
 	}
 	
@@ -39,7 +39,15 @@ public class DataBank : MonoBehaviour {
 		
 		return canJ;
 	}
-    
+    public void SetRings(){
+
+		rings ++;
+	}
+	public int GetRings(){
+
+		return rings;
+	}
+
 	 
 	}
 

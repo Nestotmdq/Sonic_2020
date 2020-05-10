@@ -10,11 +10,8 @@ public class LiveShow : MonoBehaviour {
 	public Image livesUI;
 
 	void Start () {
-		
-
 
 	}
-	
 	
 	void FixedUpdate () {
 		Debug.Log(DataBank.dataBank.GetVidas());

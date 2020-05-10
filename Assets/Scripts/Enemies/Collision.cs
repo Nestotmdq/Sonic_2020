@@ -17,7 +17,7 @@ public class Collision : MonoBehaviour {
 				Instantiate(soundImpact);
 			 	gameObject.GetComponent<BoxCollider2D>().enabled = false;
 				gameObject.GetComponent<Animator>().SetBool("fire",true);
-				Destroy(gameObject,1);
+				Destroy(transform.parent.gameObject,1);
 
 				//Instantiate(soundImpact);
 			}
