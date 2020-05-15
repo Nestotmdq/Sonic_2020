@@ -12,6 +12,7 @@ TagManager:
   - empuje2
   - player
   - phanton
+  - nosalta
   layers:
   - Default
   - TransparentFX

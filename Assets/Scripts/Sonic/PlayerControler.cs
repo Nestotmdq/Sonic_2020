@@ -54,11 +54,13 @@ public class PlayerControler : MonoBehaviour {
 	                            }
 	private void left(){
                 		rb.AddForce(new Vector2(fuerza * -1 * Time.deltaTime,0));
+                        rb.AddForce(new Vector2(0,90f * Time.deltaTime));
 		                sr.flipX = true;
 		                an.SetBool("moving",true);
                       	}
 	private void right(){
 		rb.AddForce(new Vector2(fuerza * Time.deltaTime,0));
+		rb.AddForce(new Vector2(0,90f * Time.deltaTime));
 		sr.flipX = false;
 		an.SetBool("moving",true);
 	}
@@ -83,6 +85,7 @@ public class PlayerControler : MonoBehaviour {
 									                                             an.SetBool("caida",false);
 																				 canHit = false;
 	                                                                            }
+											 				 
 											 }
 											  	
 
@@ -99,6 +102,9 @@ public class PlayerControler : MonoBehaviour {
 					  rb.AddForce(new Vector2(0,400f));
 				}
 				
+			}
+			if(other.transform.tag == "nosalta"){
+				canJump = false;
 			}
 	}
     IEnumerator Wait(){
