@@ -66,7 +66,7 @@ public class PlayerControler : MonoBehaviour {
 	}
 	private void runnerjump(){
                              an.SetBool("movjump",true);
-						     up(30f);
+						     up(20f);
 	                         }
 	private void up(float fuerza){
 	                             if(canJump == true){

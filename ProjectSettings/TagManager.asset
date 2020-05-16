@@ -56,3 +56,9 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: lejana
+    uniqueID: 1113116005
+    locked: 0
+  - name: New Layer
+    uniqueID: 1962794353
+    locked: 0
