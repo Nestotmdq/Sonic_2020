@@ -53,6 +53,7 @@
   <ItemGroup>
      <Compile Include="Assets\Scripts\Enemies\Collision.cs" />
      <Compile Include="Assets\Scripts\Enemies\InitialPosition.cs" />
+     <Compile Include="Assets\Scripts\Enemies\Move.cs" />
      <Compile Include="Assets\Scripts\Sonic\ControlCaida.cs" />
      <Compile Include="Assets\Scripts\Sonic\PlayerControler.cs" />
      <Compile Include="Assets\Scripts\Sounds\livetime.cs" />
