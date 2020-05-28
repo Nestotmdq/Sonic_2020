@@ -16,7 +16,7 @@ public class PlayerControler : MonoBehaviour {
 	SpriteRenderer sr;
 	public GameObject soundHit;
 	bool keyActive;
-	BoxCollider2D bc;
+	PolygonCollider2D bc;
 	
 	void Start(){
 		
@@ -24,7 +24,7 @@ public class PlayerControler : MonoBehaviour {
 		an = gameObject.GetComponent<Animator>();
 		rb = gameObject.GetComponent<Rigidbody2D>();
 		sr = gameObject.GetComponent<SpriteRenderer>();
-		bc = gameObject.GetComponent<BoxCollider2D>();
+		bc = gameObject.GetComponent<PolygonCollider2D>();
 		keyActive = true;
 	}
 	private void FixedUpdate () {
