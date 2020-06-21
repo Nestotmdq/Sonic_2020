@@ -1,10 +1,10 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerControler : MonoBehaviour {
 
-	
     public static PlayerControler playerControler;
 	public GameObject jumpSound;
 	public float fuerza;
@@ -16,15 +16,16 @@ public class PlayerControler : MonoBehaviour {
 	SpriteRenderer sr;
 	public GameObject soundHit;
 	bool keyActive;
-	PolygonCollider2D bc;
-	
+	string tienerings;
+	int tieneringsint;
+	public Text canvasText;
 	void Start(){
 		
 		playerControler = this;
 		an = gameObject.GetComponent<Animator>();
 		rb = gameObject.GetComponent<Rigidbody2D>();
 		sr = gameObject.GetComponent<SpriteRenderer>();
-		bc = gameObject.GetComponent<PolygonCollider2D>();
+	//	bc = gameObject.GetComponent<PolygonCollider2D>();
 		keyActive = true;
 	}
 	private void FixedUpdate () {
@@ -92,31 +93,32 @@ public class PlayerControler : MonoBehaviour {
 	 void OnTriggerEnter2D(Collider2D other) {
 			if(other.transform.tag == "phanton"){
                 if(canJump == true){
+					int ringstiene = int.Parse(DataBank.dataBank.GetRings());
+                    if(ringstiene == 0){
+						DataBank.dataBank.SetVidas(-1);
+					                   }
+                    DataBank.dataBank.cerorings();
+					canvasText.text = DataBank.dataBank.GetRings();
                     Instantiate(soundHit);
-                      keyActive = false;
-                      an.SetBool("inertia",true);
-		              an.SetBool("wakeup",false);
-		              an.SetBool("caida",true);
-					  StartCoroutine("Wait");
-					  rb.AddForce(new Vector2(-200f,0));
-					  rb.AddForce(new Vector2(0,400f));
+                    keyActive = false;
+		            an.SetBool("wakeup",true);
+		            an.SetBool("caida",true);
+					StartCoroutine("Wait");
+					rb.AddForce(new Vector2(-200f,0));
+					rb.AddForce(new Vector2(0,400f));
 				}
-				
 			}
 			if(other.transform.tag == "nosalta"){
 				canJump = false;
 			}
 	}
     IEnumerator Wait(){
-					   Debug.Log("Entrando en wait");
-                       yield return new WaitForSeconds(2);
-                       sr.enabled = false;
-					//   rb.AddForce(new Vector2(0,700f));
+					  
+                       yield return new WaitForSeconds(3);
+					   an.SetBool("wakeup",false);
+					   keyActive = true;
 					   rb.AddForce(new Vector2(-150f,0));
-					  // sr.enabled = true;
 	                                  }
-
-
     public bool GetcanJump(){
 	                        return canJump;
                             }

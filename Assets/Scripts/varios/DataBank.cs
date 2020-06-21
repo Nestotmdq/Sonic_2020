@@ -6,12 +6,11 @@ public class DataBank : MonoBehaviour {
 
 	
 	public static DataBank dataBank;
+	
     int vidas;
 	bool canJ;
 	int rings;
 	
-	
-
 	void Start () {
 //	Debug.Log("El juego se inicio");	
 	dataBank = this;	
@@ -22,30 +21,23 @@ public class DataBank : MonoBehaviour {
 	
 	public int GetVidas(){
 		return vidas;
-		
 	}
 	public void SetVidas(int vida){
 	vidas += vida ;
-	//Debug.Log("Se resto una vida");
+	Debug.Log("Se resto una vida");
 	
 	}
-	public void SetcanJ(bool valor){
-         
-		 canJ = valor;
-
-	}
-	public bool GetcanJ(){
-
-		
-		return canJ;
-	}
+	
     public void SetRings(){
-
-		rings ++;
+    rings++;
 	}
-	public int GetRings(){
-
-		return rings;
+	public string GetRings(){
+	string rin = rings.ToString();
+	return rin;
+	}
+	public void cerorings(){
+	rings = 0;
+	
 	}
 
 	 
