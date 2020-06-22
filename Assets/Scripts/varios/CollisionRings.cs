@@ -16,6 +16,7 @@ public class CollisionRings : MonoBehaviour {
 			DataBank.dataBank.SetRings();
 			DataBank.dataBank.GetRings();
 			canvasText.text = DataBank.dataBank.GetRings();
+			canvasText.color = Color.white;
 			Destroy(gameObject);
 
 			

@@ -4,7 +4,8 @@ using UnityEngine;
 using UnityEngine.UI;
 
 public class PlayerControler : MonoBehaviour {
-
+	public Text RingCounter;
+	public Text LifeCanvas;
     public static PlayerControler playerControler;
 	public GameObject jumpSound;
 	public float fuerza;
@@ -21,6 +22,7 @@ public class PlayerControler : MonoBehaviour {
 	public Text canvasText;
 	void Start(){
 		
+		RingCounter.color = Color.red;
 		playerControler = this;
 		an = gameObject.GetComponent<Animator>();
 		rb = gameObject.GetComponent<Rigidbody2D>();
@@ -96,8 +98,10 @@ public class PlayerControler : MonoBehaviour {
 					int ringstiene = int.Parse(DataBank.dataBank.GetRings());
                     if(ringstiene == 0){
 						DataBank.dataBank.SetVidas(-1);
+						LifeCanvas.text = DataBank.dataBank.GetVidas()+ "";
 					                   }
                     DataBank.dataBank.cerorings();
+					RingCounter.color = Color.red; 
 					canvasText.text = DataBank.dataBank.GetRings();
                     Instantiate(soundHit);
                     keyActive = false;

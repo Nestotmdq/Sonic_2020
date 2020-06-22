@@ -2,15 +2,17 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+
 public class DataBank : MonoBehaviour {
 
 	
-	public static DataBank dataBank;
+	
 	
     int vidas;
 	bool canJ;
 	int rings;
 	
+	public static DataBank dataBank;
 	void Start () {
 //	Debug.Log("El juego se inicio");	
 	dataBank = this;	
@@ -35,10 +37,11 @@ public class DataBank : MonoBehaviour {
 	string rin = rings.ToString();
 	return rin;
 	}
-	public void cerorings(){
-	rings = 0;
-	
+	public void cerorings (){
+		rings = 0;
 	}
+	
+	
 
 	 
 	}
