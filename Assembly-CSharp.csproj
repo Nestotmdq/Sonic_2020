@@ -63,6 +63,7 @@
      <Compile Include="Assets\Scripts\varios\DataBank.cs" />
      <Compile Include="Assets\Scripts\varios\LiveShow.cs" />
      <Compile Include="Assets\Scripts\varios\MenuOpciones.cs" />
+     <Compile Include="Assets\Scripts\varios\Over.cs" />
      <Compile Include="Assets\Scripts\varios\ScrollInfinito.cs" />
  <Reference Include="UnityEngine.UI">
  <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>

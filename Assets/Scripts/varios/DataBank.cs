@@ -1,23 +1,23 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 
 public class DataBank : MonoBehaviour {
 
-	
-	
-	
+	public Text canvaspuntaje;
     int vidas;
 	bool canJ;
 	int rings;
-	
+    int score;	
 	public static DataBank dataBank;
 	void Start () {
-//	Debug.Log("El juego se inicio");	
+
 	dataBank = this;	
-	vidas = 3;
+	vidas = 1;
 	rings = 0;
+	score = 0;
 	
 	}
 	
@@ -40,7 +40,16 @@ public class DataBank : MonoBehaviour {
 	public void cerorings (){
 		rings = 0;
 	}
-	
+	public void sumascore(int number){
+
+		score = score + number;
+		canvaspuntaje.text = score +"";
+
+	}
+	public int getscore(){
+
+		return score;
+	}
 	
 
 	 

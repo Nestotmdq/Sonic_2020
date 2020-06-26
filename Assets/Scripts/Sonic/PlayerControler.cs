@@ -99,6 +99,10 @@ public class PlayerControler : MonoBehaviour {
                     if(ringstiene == 0){
 						DataBank.dataBank.SetVidas(-1);
 						LifeCanvas.text = DataBank.dataBank.GetVidas()+ "";
+						if(DataBank.dataBank.GetVidas()==0){
+
+														Over.show();
+						}
 					                   }
                     DataBank.dataBank.cerorings();
 					RingCounter.color = Color.red; 
