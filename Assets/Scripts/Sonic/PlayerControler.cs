@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 
 public class PlayerControler : MonoBehaviour {
+	public GameObject gameOver;
 	public Text RingCounter;
 	public Text LifeCanvas;
     public static PlayerControler playerControler;
@@ -20,6 +21,7 @@ public class PlayerControler : MonoBehaviour {
 	string tienerings;
 	int tieneringsint;
 	public Text canvasText;
+	CircleCollider2D cc;
 	void Start(){
 		
 		RingCounter.color = Color.red;
@@ -27,7 +29,7 @@ public class PlayerControler : MonoBehaviour {
 		an = gameObject.GetComponent<Animator>();
 		rb = gameObject.GetComponent<Rigidbody2D>();
 		sr = gameObject.GetComponent<SpriteRenderer>();
-	//	bc = gameObject.GetComponent<PolygonCollider2D>();
+	    cc = gameObject.GetComponent<CircleCollider2D>();
 		keyActive = true;
 	}
 	private void FixedUpdate () {
@@ -91,35 +93,55 @@ public class PlayerControler : MonoBehaviour {
 											 				 
 											 }
 											  	
-
-	 void OnTriggerEnter2D(Collider2D other) {
+void OnTriggerEnter2D(Collider2D other) {
 			if(other.transform.tag == "phanton"){
                 if(canJump == true){
-					int ringstiene = int.Parse(DataBank.dataBank.GetRings());
+                    int ringstiene = int.Parse(DataBank.dataBank.GetRings());
                     if(ringstiene == 0){
+						jumpback();
 						DataBank.dataBank.SetVidas(-1);
-						LifeCanvas.text = DataBank.dataBank.GetVidas()+ "";
 						if(DataBank.dataBank.GetVidas()==0){
-
-														Over.show();
+							LifeCanvas.color = Color.red; 
 						}
-					                   }
+
+						LifeCanvas.text = DataBank.dataBank.GetVidas()+ "";
+						if(DataBank.dataBank.GetVidas()==-1){
+															Music.music.musicoff();
+															Instantiate(gameOver);
+							                                LifeCanvas.text = "0";
+															jumpback();
+															cc.enabled = false;
+															StartCoroutine("WaitOver");
+						}
+					                   }else{
                     DataBank.dataBank.cerorings();
 					RingCounter.color = Color.red; 
 					canvasText.text = DataBank.dataBank.GetRings();
-                    Instantiate(soundHit);
-                    keyActive = false;
-		            an.SetBool("wakeup",true);
-		            an.SetBool("caida",true);
-					StartCoroutine("Wait");
-					rb.AddForce(new Vector2(-200f,0));
-					rb.AddForce(new Vector2(0,400f));
+					jumpback();
+									   }
 				}
-			}
 			if(other.transform.tag == "nosalta"){
 				canJump = false;
 			}
 	}
+}
+
+	private void jumpback(){
+                           Instantiate(soundHit);
+                           keyActive = false;
+		                   an.SetBool("wakeup",true);
+		                   an.SetBool("caida",true);
+					       StartCoroutine("Wait");
+					       rb.AddForce(new Vector2(-200f,0));
+				           rb.AddForce(new Vector2(0,400f));
+	}
+	IEnumerator WaitOver(){
+                           yield return new WaitForSeconds(2);
+                           gameObject.SetActive(false);
+        				   Over.show();
+						  
+	                      }
+
     IEnumerator Wait(){
 					  
                        yield return new WaitForSeconds(3);

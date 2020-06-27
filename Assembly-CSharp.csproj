@@ -56,7 +56,9 @@
      <Compile Include="Assets\Scripts\Enemies\Move.cs" />
      <Compile Include="Assets\Scripts\Sonic\ControlCaida.cs" />
      <Compile Include="Assets\Scripts\Sonic\PlayerControler.cs" />
+     <Compile Include="Assets\Scripts\Sounds\GOMusic.cs" />
      <Compile Include="Assets\Scripts\Sounds\livetime.cs" />
+     <Compile Include="Assets\Scripts\Sounds\Music.cs" />
      <Compile Include="Assets\Scripts\varios\cambio_color.cs" />
      <Compile Include="Assets\Scripts\varios\CameraFollow.cs" />
      <Compile Include="Assets\Scripts\varios\CollisionRings.cs" />
