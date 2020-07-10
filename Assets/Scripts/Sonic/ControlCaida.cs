@@ -12,7 +12,7 @@ public class ControlCaida : MonoBehaviour {
 	Rigidbody2D rb;
 	Animator an;
 	SpriteRenderer sr;
-	BoxCollider2D bc;
+	CircleCollider2D bc;
 	PlayerControler  cj;
 	
 	void Start(){
@@ -20,7 +20,7 @@ public class ControlCaida : MonoBehaviour {
 	             rb = gameObject.GetComponent<Rigidbody2D>();
                  an = gameObject.GetComponent<Animator>();
 	             sr = gameObject.GetComponent<SpriteRenderer>();
-	             bc = gameObject.GetComponent<BoxCollider2D>();  
+	             bc = gameObject.GetComponent<CircleCollider2D>();  
 	             cj = PlayerControler.playerControler;
 				}
 
@@ -46,7 +46,7 @@ public class ControlCaida : MonoBehaviour {
 			                                                                                StartCoroutine ("Wait2");
 								                                                            DataBank.dataBank.SetVidas(-1);
 							                                                                int muestra = DataBank.dataBank.GetVidas();
-									                                                        textoScore.text = muestra + "";
+									                                                       // textoScore.text = muestra + "";
 								                                                            }
 	                                                   }
 

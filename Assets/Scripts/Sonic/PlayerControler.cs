@@ -94,7 +94,12 @@ public class PlayerControler : MonoBehaviour {
 											 }
 											  	
 void OnTriggerEnter2D(Collider2D other) {
-			if(other.transform.tag == "phanton"){
+
+
+		//	if(other.transform.tag == "phanton"){
+
+	if((other.transform.tag == "phanton")||(other.transform.tag == "crag")){
+
                 if(canJump == true){
                     int ringstiene = int.Parse(DataBank.dataBank.GetRings());
                     if(ringstiene == 0){
