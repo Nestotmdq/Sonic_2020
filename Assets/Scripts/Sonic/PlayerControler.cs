@@ -4,23 +4,16 @@ using UnityEngine;
 using UnityEngine.UI;
 
 public class PlayerControler : MonoBehaviour {
-	public GameObject gameOver;
-	public Text RingCounter;
-	public Text LifeCanvas;
+	public GameObject gameOver,jumpSound,soundHit;
+	public Text RingCounter,LifeCanvas,canvasText;
     public static PlayerControler playerControler;
-	public GameObject jumpSound;
-	public float fuerza;
-	public float fuerzaSalto;
-	bool canJump;
-    bool canHit;
+	public float fuerza,fuerzaSalto;
+	bool canJump,canHit,keyActive;
 	Animator an;
 	Rigidbody2D rb;
 	SpriteRenderer sr;
-	public GameObject soundHit;
-	bool keyActive;
 	string tienerings;
 	int tieneringsint;
-	public Text canvasText;
 	CircleCollider2D cc;
 	void Start(){
 		
@@ -90,25 +83,31 @@ public class PlayerControler : MonoBehaviour {
 									                                             an.SetBool("caida",false);
 																				 canHit = false;
 	                                                                            }
+
+											  if(coll.transform.tag == "crab"){enemyimpact();}
 											 				 
 											 }
-											  	
+
+
 void OnTriggerEnter2D(Collider2D other) {
 
+if(other.transform.tag == "phanton"){
+									enemyimpact();
+if(other.transform.tag == "nosalta"){
+									canJump = false;
+									}
+																			}
+}
 
-		//	if(other.transform.tag == "phanton"){
-
-	if((other.transform.tag == "phanton")||(other.transform.tag == "crag")){
-
-                if(canJump == true){
-                    int ringstiene = int.Parse(DataBank.dataBank.GetRings());
-                    if(ringstiene == 0){
+private void enemyimpact(){
+ if(canJump == true){
+                        int ringstiene = int.Parse(DataBank.dataBank.GetRings());
+                        if(ringstiene == 0){
 						jumpback();
 						DataBank.dataBank.SetVidas(-1);
-						if(DataBank.dataBank.GetVidas()==0){
-							LifeCanvas.color = Color.red; 
-						}
-
+						if(DataBank.dataBank.GetVidas()==0) {
+															LifeCanvas.color = Color.red; 
+															}
 						LifeCanvas.text = DataBank.dataBank.GetVidas()+ "";
 						if(DataBank.dataBank.GetVidas()==-1){
 															Music.music.musicoff();
@@ -117,19 +116,16 @@ void OnTriggerEnter2D(Collider2D other) {
 															jumpback();
 															cc.enabled = false;
 															StartCoroutine("WaitOver");
-						}
-					                   }else{
-                    DataBank.dataBank.cerorings();
-					RingCounter.color = Color.red; 
-					canvasText.text = DataBank.dataBank.GetRings();
-					jumpback();
-									   }
-				}
-			if(other.transform.tag == "nosalta"){
-				canJump = false;
-			}
-	}
+															}
+					                                  	    }else{
+                                                                  DataBank.dataBank.cerorings();
+				                                        		  RingCounter.color = Color.red; 
+															      canvasText.text = DataBank.dataBank.GetRings();
+															      jumpback();
+									 					         }
+				                   }
 }
+
 
 	private void jumpback(){
                            Instantiate(soundHit);

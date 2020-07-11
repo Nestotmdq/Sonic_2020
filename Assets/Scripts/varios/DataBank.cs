@@ -26,7 +26,7 @@ public class DataBank : MonoBehaviour {
 	}
 	public void SetVidas(int vida){
 	vidas += vida ;
-	Debug.Log("Se resto una vida");
+	
 	
 	}
 	

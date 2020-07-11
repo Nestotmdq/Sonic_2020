@@ -42,7 +42,7 @@ GameObject:
   - component: {fileID: 114223130527274658}
   m_Layer: 0
   m_Name: enemy_sf_0
-  m_TagString: batboat
+  m_TagString: phanton
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -54,7 +54,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1318436958304756}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -10.504025, y: 0.17033124, z: 0}
+  m_LocalPosition: {x: -9.89, y: -0.69, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4881304802983618}

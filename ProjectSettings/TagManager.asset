@@ -15,6 +15,7 @@ TagManager:
   - nosalta
   - batboat
   - crab
+  - enemy
   layers:
   - Default
   - TransparentFX
