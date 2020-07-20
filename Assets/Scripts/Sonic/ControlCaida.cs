@@ -6,8 +6,8 @@ using UnityEngine.UI;
 
 public class ControlCaida : MonoBehaviour {
      
-	public GameObject soundFall;
-	public Text textoScore;
+	public GameObject soundFall,gameover;
+	public Text textoScore,lifecanvas,ringtext;
 	PlayerControler pc;
 	Rigidbody2D rb;
 	Animator an;
@@ -26,27 +26,41 @@ public class ControlCaida : MonoBehaviour {
 
     void OnTriggerEnter2D(Collider2D other){
 		                                   if(other.gameObject.tag == "vacio"){
-                                           if((cj.GetcanJump() == true)||(cj.GetcanJump() == false)){
-																					                 Instantiate(soundFall);
-		                                                                                             pc.enabled = false;
-																								     an.SetBool("inertia",true);
-		                                                                                             an.SetBool("wakeup",false);
-		                                                                                             an.SetBool("caida",true);
-										   }}}
+																			   Instantiate(soundFall);
+		                                                                       pc.enabled = false;
+		                                                                       an.SetBool("caida",true);
+																			   an.SetBool("wakeup",true);
+										   }}
     private void OnCollisionEnter2D(Collision2D other) {
 								                        if(other.gameObject.tag == "fondo"){
                                 		                                                    sr.enabled = false;
-																							an.SetBool("inertia",false);
-			                                                                                an.SetBool("caida",false);
-		                                                                                    an.SetBool("wakeup",true);
-			                                                                                rb.AddForce(new Vector2(-300f,0));
+		                                                                                    an.SetBool("wakeup",false);
+			                                                                                rb.AddForce(new Vector2(-350f,0));
 			                                                                                bc.enabled = false;
-			                                                                                rb.AddForce(new Vector2(0,650f));
+			                                                                                rb.AddForce(new Vector2(0,700f));
 						                                                                    StartCoroutine ("Wait");
 			                                                                                StartCoroutine ("Wait2");
 								                                                            DataBank.dataBank.SetVidas(-1);
-							                                                                int muestra = DataBank.dataBank.GetVidas();
-									                                                       // textoScore.text = muestra + "";
+																							DataBank.dataBank.cerorings();
+																							ringtext.color = Color.red;  
+																							ringtext.text= "0";
+																							 
+
+
+
+																							int resto = DataBank.dataBank.GetVidas();
+																							if(resto == -1){
+																							               Music.music.musicoff();
+																							               Instantiate(gameover);
+																							               Over.show();	
+																										   pc.enabled = false;
+																										   lifecanvas.color = Color.red;
+																										   lifecanvas.text = "0";
+																										   
+																							}
+																							
+
+							                                                              
 								                                                            }
 	                                                   }
 
@@ -57,7 +71,10 @@ public class ControlCaida : MonoBehaviour {
 	IEnumerator Wait2(){
                         yield return new WaitForSeconds(2);
                         pc.enabled = true;
+						if(DataBank.dataBank.GetVidas() == -1){sr.enabled = false;}
+					    else
 	                    sr.enabled = true;
+
                        }
 	}
 

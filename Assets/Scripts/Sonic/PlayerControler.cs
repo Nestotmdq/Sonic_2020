@@ -112,6 +112,7 @@ private void enemyimpact(){
 						if(DataBank.dataBank.GetVidas()==-1){
 															Music.music.musicoff();
 															Instantiate(gameOver);
+															LifeCanvas.color = Color.red;
 							                                LifeCanvas.text = "0";
 															jumpback();
 															cc.enabled = false;
